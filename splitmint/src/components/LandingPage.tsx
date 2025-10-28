@@ -6,14 +6,9 @@ import { Footerdemo } from "@/components/ui/footer-section"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { GooeyText } from "@/components/ui/gooey-text-morphing"
 import { Shield, Zap, Lock, Globe, Users } from "lucide-react"
-import VisionMissionSection from "./VisionMissionSection"
 import AboutUs1 from "./mvpblocks/about-us-1"
-import PayoutsSection from "./PayoutsSection"
-import HowItWorksSection from "./HowItWorksSection"
-import BenefitsSection from "./BenefitsSection"
 import BentoGrid1 from "./mvpblocks/bento-grid-1"
 import Faq1 from "./mvpblocks/faq-1"
-import ContactSection from "./ContactSection"
 import ContactUs1 from "./mvpblocks/contact-us-1"
 import { CreditCardHero } from "./ruixen/credit-card-hero"
 import { SplitMintCardHero } from "./SplitMintCardHero"
@@ -80,7 +75,7 @@ const LandingPage = () => {
       )}
       
       {/* Hero Section */}
-      <section className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden relative pt-20">
+      <section data-section="hero" className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden relative pt-20">
         
         <div className="relative z-20 mb-8">
           <GooeyText
@@ -220,15 +215,12 @@ const LandingPage = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="w-full bg-black">
+      <section data-section="about" className="w-full bg-black">
         <AboutUs1 />
       </section>
 
-      {/* How It Works Section */}
-      <HowItWorksSection />
-
       {/* Benefits Section */}
-      <section className="w-full py-20 px-4 bg-black">
+      <section data-section="features" className="w-full py-20 px-4 bg-black">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
@@ -242,50 +234,17 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Payouts Section */}
-      <PayoutsSection />
-
       {/* FAQ Section */}
-      <section className="w-full py-20 px-4 bg-black">
+      <section data-section="faq" className="w-full py-20 px-4 bg-black">
         <div className="container mx-auto">
           <Faq1 />
         </div>
       </section>
 
       {/* Contact Section */}
-      <ContactUs1 />
-      
-      {/* Testimonials Section */}
-      <section id="testimonials" className="w-full py-20 px-4 bg-black relative">
-        <div className="max-w-7xl mx-auto relative z-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              What Our Customers Say
-            </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Trusted by groups worldwide who have simplified their shared expenses
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialsColumn
-              className="h-96 overflow-hidden"
-              testimonials={testimonials}
-              duration={15}
-            />
-            <TestimonialsColumn
-              className="h-96 overflow-hidden"
-              testimonials={testimonials}
-              duration={20}
-            />
-            <TestimonialsColumn
-              className="h-96 overflow-hidden"
-              testimonials={testimonials}
-              duration={25}
-            />
-          </div>
-        </div>
-      </section>
+      <div data-section="contact">
+        <ContactUs1 />
+      </div>
       
       {/* Footer Section */}
       <section id="about" className="relative bg-black">

@@ -203,23 +203,32 @@ export default function AboutUs1() {
                     ease: 'easeOut',
                   }}
                   whileHover={{ y: -5, scale: 1.02 }}
+                  className="group"
                 >
-                  <CardHoverEffect
-                    icon={<IconComponent className="h-6 w-6" />}
-                    title={value.title}
-                    description={value.description}
-                    variant={
-                      index === 0
-                        ? 'purple'
-                        : index === 1
-                          ? 'blue'
-                          : index === 2
-                            ? 'amber'
-                            : 'rose'
-                    }
-                    glowEffect={true}
-                    size="lg"
-                  />
+                  <div className="relative h-full p-6 bg-gray-900/50 border border-gray-700/50 rounded-2xl backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
+                    {/* Gradient border effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/20 via-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <div className="mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <IconComponent className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                        {value.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-gray-300 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}

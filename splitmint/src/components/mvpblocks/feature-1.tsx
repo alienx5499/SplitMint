@@ -48,9 +48,8 @@ export default function Feature1() {
             <h3 className="font-geist mt-4 text-3xl font-normal tracking-tighter text-white sm:text-4xl md:text-5xl">
               Let’s help build your MVP
             </h3>
-            <p className="font-geist text-foreground/60 mt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              congue, nisl eget molestie varius, enim ex faucibus purus.
+            <p className="font-geist text-gray-300 mt-3">
+              Connect your Gmail and let our AI automatically categorize your expenses, track your budget, and provide real-time insights.
             </p>
           </div>
           <div
@@ -72,10 +71,10 @@ export default function Feature1() {
                 <div className="text-purple-500 w-fit transform-gpu rounded-full border p-4 [box-shadow:0_-20px_80px_-20px_#8b5cf63f_inset] dark:[box-shadow:0_-20px_80px_-20px_#8b5cf60f_inset]">
                   {item.icon}
                 </div>
-                <h4 className="font-geist text-lg font-bold tracking-tighter">
+                <h4 className="font-geist text-lg font-bold tracking-tighter text-white">
                   {item.title}
                 </h4>
-                <p className="text-gray-500">{item.desc}</p>
+                <p className="text-gray-300">{item.desc}</p>
               </li>
             ))}
           </ul>

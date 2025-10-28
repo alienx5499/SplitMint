@@ -62,24 +62,37 @@ const Navbar1 = () => {
   }, [isProfileOpen])
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Features', path: '/features' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Home', path: '/', section: 'hero' },
+    { name: 'About', path: '/', section: 'about' },
+    { name: 'Features', path: '/', section: 'features' },
+    { name: 'FAQ', path: '/', section: 'faq' },
+    { name: 'Contact', path: '/', section: 'contact' }
   ]
 
-  const handleNavClick = (item: string) => {
-    if (item === 'Home') {
-      router.push('/')
+  const handleNavClick = (item: { name: string; path: string; section: string }) => {
+    if (item.name === 'Home') {
+      // Scroll to top of page
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
-      // Scroll to section on landing page
-      router.push('/')
-      setTimeout(() => {
-        const element = typeof window !== 'undefined' ? document.getElementById(item.toLowerCase()) : null
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
+      // Scroll to specific section
+      const element = document.querySelector(`[data-section="${item.section}"]`) || 
+                     document.getElementById(item.section) ||
+                     document.querySelector(`#${item.section}`)
+      
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        // Fallback: try to find section by class or other selectors
+        const sections = document.querySelectorAll('section')
+        const targetSection = Array.from(sections).find(section => {
+          const text = section.textContent?.toLowerCase() || ''
+          return text.includes(item.section.toLowerCase())
+        })
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
-      }, 100)
+      }
     }
     setIsOpen(false)
   }
@@ -110,11 +123,11 @@ const Navbar1 = () => {
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <button
-                onClick={() => handleNavClick(item.name)}
+                onClick={() => handleNavClick(item)}
                 className={`text-sm transition-colors font-medium ${
                   pathname === item.path 
-                    ? 'text-blue-600' 
-                    : 'text-gray-900 hover:text-gray-600'
+                    ? 'text-purple-600' 
+                    : 'text-gray-900 hover:text-purple-600'
                 }`}
               >
                 {item.name}
@@ -174,7 +187,7 @@ const Navbar1 = () => {
                           router.push('/dashboard');
                           setIsProfileOpen(false);
                         }}
-                        className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                        className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
                       >
                         <LayoutDashboard className="h-4 w-4" />
                         Dashboard
@@ -208,7 +221,7 @@ const Navbar1 = () => {
           ) : (
             <LiquidButton 
               size="sm" 
-              className="px-5 py-2 text-sm text-blue-600"
+              className="px-5 py-2 text-sm text-purple-600"
               onClick={() => setIsAuthModalOpen(true)}
               disabled={isLoading}
             >
@@ -247,11 +260,11 @@ const Navbar1 = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onClick={() => handleNavClick(item.name)}
+                    onClick={() => handleNavClick(item)}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
                       pathname === item.path
-                        ? 'bg-blue-50 text-blue-600 font-medium'
-                        : 'text-gray-700 hover:bg-gray-50'
+                        ? 'bg-purple-50 text-purple-600 font-medium'
+                        : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600'
                     }`}
                   >
                     {item.name}
@@ -271,7 +284,7 @@ const Navbar1 = () => {
                     </div>
                     <LiquidButton 
                       size="lg" 
-                      className="w-full px-5 py-3 text-base text-blue-600"
+                      className="w-full px-5 py-3 text-base text-purple-600"
                       onClick={() => {
                         router.push('/dashboard');
                         toggleMenu();
@@ -294,7 +307,7 @@ const Navbar1 = () => {
                 ) : (
                   <LiquidButton 
                     size="lg" 
-                    className="w-full px-5 py-3 text-base text-blue-600"
+                    className="w-full px-5 py-3 text-base text-purple-600"
                     onClick={() => {
                       setIsAuthModalOpen(true);
                       toggleMenu();
