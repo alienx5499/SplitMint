@@ -54,7 +54,7 @@ const ContactSection = () => {
             Get in Touch
           </h2>
           <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto">
-            Have questions about SplitMint? We're here to help you manage your shared expenses effortlessly.
+            Have questions about SplitMint? We&apos;re here to help you manage your shared expenses effortlessly.
           </p>
         </div>
 
@@ -150,8 +150,8 @@ const ContactSection = () => {
             <div className="relative">
               <h3 className="text-2xl font-bold text-white mb-4">Why Choose SplitMint?</h3>
               <p className="text-neutral-300 text-lg leading-relaxed">
-                We're committed to making expense splitting as simple and transparent as possible. 
-                Our team is always ready to help you get the most out of SplitMint, whether you're 
+                We&apos;re committed to making expense splitting as simple and transparent as possible. 
+                Our team is always ready to help you get the most out of SplitMint, whether you&apos;re 
                 splitting dinner bills with friends or managing complex group travel expenses.
               </p>
             </div>

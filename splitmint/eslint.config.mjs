@@ -29,6 +29,7 @@ const eslintConfig = [
       "prefer-const": "off",
       "react-hooks/exhaustive-deps": "warn",
       "react-refresh/only-export-components": "off",
+      "react/no-unescaped-entities": "off",
       "@next/next/no-img-element": "warn",
     },
   },

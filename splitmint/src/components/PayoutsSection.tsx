@@ -34,7 +34,7 @@ const PayoutsSection = () => {
             Payouts & Pricing
           </h2>
           <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto">
-            Fair, transparent, and automated. Understand exactly how you're compensated.
+            Fair, transparent, and automated. Understand exactly how you&apos;re compensated.
           </p>
         </div>
 

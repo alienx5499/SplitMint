@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { Menu, X, User, Settings, LogOut, Copy, ExternalLink, LayoutDashboard } from "lucide-react"
+import { Menu, X, User, Settings, LogOut, Copy, ExternalLink } from "lucide-react"
 import { toast } from "sonner"
 import { useRouter, usePathname } from "next/navigation"
 import { LiquidButton } from "./liquid-glass-button"
@@ -183,16 +183,6 @@ const Navbar1 = () => {
                     {/* Quick Actions */}
                     <div className="px-2 py-2 space-y-1">
                       <button
-                        onClick={() => {
-                          router.push('/dashboard');
-                          setIsProfileOpen(false);
-                        }}
-                        className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
-                      >
-                        <LayoutDashboard className="h-4 w-4" />
-                        Dashboard
-                      </button>
-                      <button
                         onClick={copyEmail}
                         className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
                       >
@@ -282,17 +272,6 @@ const Navbar1 = () => {
                         {formatEmail(user!.email)}
                       </span>
                     </div>
-                    <LiquidButton 
-                      size="lg" 
-                      className="w-full px-5 py-3 text-base text-purple-600"
-                      onClick={() => {
-                        router.push('/dashboard');
-                        toggleMenu();
-                      }}
-                    >
-                      <LayoutDashboard className="w-4 h-4 mr-2" />
-                      Dashboard
-                    </LiquidButton>
                     <LiquidButton 
                       size="lg" 
                       className="w-full px-5 py-3 text-base"
